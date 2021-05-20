@@ -1,0 +1,36 @@
+TP1
+=========
+Description
+===========
+Ce Tp consiste à apprendre à créer un makefile et à explorer également la bibliothèque MLV.
+Le makefile exécute deux pogrammes. Le premier programme (prog) est destiné à calculer la somme d'un nombre passé
+en argument avec PI. La fonction sum se trouve dans un autre fichier qui est inclus en tant que fichier d'en-tête
+dans le programme principal.
+Pour lancer le programme
+./prog <interger>
+Program
+==========
+prog.c
+Dependencies
+===========
+sum.c
+sum.h
+Le deuxième programme (maison) est destiné à afficher une maison en utilisant la bibliothèque MLV.
+Pour lancer le programme
+./maison
+Program
+==========
+maison.c
+Dependencies
+=============
+MLV_all.h
+IMPORTANT
+===========
+N'oubliez pas d'exécuter la commande make à chaque fois que vous modifiez le code.
+
+Fonction projet
+===============
+Les fonctions qui seront utilisées plus tard dans le projet sont:
+- MLV_draw_filled_rectangle ## dessine un rectangle.
+- MLV_actualise_window() ## rafraichit l'affichage.
+- MLV_wait_keyboard( &sym, &mod, &unicode ) ## récupère une touche tapée au clavier.
