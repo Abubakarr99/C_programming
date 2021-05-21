@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<string.h>
+#define NBL 22
+#define NBC 36
+#include <MLV/MLV_all.h>
+
+enum Element {WALL='w', EMPTY=' ', FRUIT='f'};
+
+void debug(char matrice[][NBC], int ligne, int colonne){
+        for(int i=0;i<ligne;i++)
+        {
+                for(int j=0;j<colonne;j++)
+                {
+                        printf("%c", matrice[i][j]);
+                }
+                printf("\n");
+        }
+
+}
+
+
+int  compute_size(int h, int w)
+{
+	int a, i, j;
+	i = h/NBL;
+	j = w/NBC;
+	return i < j ? i:j;
+}
+
+void draw_grid(char grid[NBL][NBC+1]){
+	int h, w, carre;
+	enum Element symbol;
+	h = MLV_get_window_height ();
+	w = MLV_get_window_width ();
+	carre = compute_size(h, w);
+        for(int i=0;i<NBL;i++)
+        {
+                for(int j=0;j<NBC+1;j++)
+                {
+
+			if (grid[i][j] == WALL){
+				MLV_draw_filled_rectangle( j*carre, i*carre , carre, carre, MLV_COLOR_BLUE );
+			}
+			else if(grid[i][j] == EMPTY){
+				MLV_draw_filled_rectangle( j*carre, i*carre , carre, carre, MLV_COLOR_WHITE );
+			}
+			else if(grid[i][j] == FRUIT){
+				MLV_draw_filled_rectangle( j*carre, i*carre , carre, carre, MLV_COLOR_GREEN );
+			}
+
+                }
+        }
+}
+
+
