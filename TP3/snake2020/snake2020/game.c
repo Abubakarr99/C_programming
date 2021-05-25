@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 
     	draw_grid(grid);
     	place_snake(grid, tab);
-	move_snake(tab, grid);
+	tab = move_snake(tab, grid);
     	debug(grid , 22, 36);
 
 

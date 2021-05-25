@@ -66,10 +66,12 @@ void place_snake(char grid[NBL][NBC+1], Snake serpent){
 	}
 }
 
-void move_snake(Snake serpent, char grid[NBL][NBC+1]){
+Snake move_snake(Snake serpent, char grid[NBL][NBC+1]){
 	grid[serpent.pos[3].x][serpent.pos[3].y] = ' ';
 	serpent = crawl(serpent);
 	grid[serpent.pos[0].x][serpent.pos[0].y] = 's';
+	
+	return serpent;
 }
 
 
