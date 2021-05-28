@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<string.h>
+#include <stdio.h>
+#include <string.h>
 #include "grid.h"
 #include "snake.c"
 #include <MLV/MLV_all.h>

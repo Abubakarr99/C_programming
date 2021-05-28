@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 #include <MLV/MLV_all.h>
 #include <getopt.h>
 #include "grid.h"
@@ -135,7 +135,8 @@ int main(int argc, char *argv[])
                 tab.dir = 'q';
                 break;
         }
-
+	
+	
         touche = MLV_KEYBOARD_NONE;
         MLV_delay_according_to_frame_rate();
     }
