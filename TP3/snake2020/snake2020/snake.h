@@ -30,6 +30,10 @@ Snake crawl(Snake serpent){
 	serpent.pos[SNAKE_SIZE-4].y = y+1;
 	printf("%d ", serpent.pos[SNAKE_SIZE-4].x);
 	serpent.pos[SNAKE_SIZE-4].x = x;
+	
+	if(serpent.pos[SNAKE_SIZE-4].y >= NBC)
+		(serpent.pos[SNAKE_SIZE-4].y = 0);
+	
 	return serpent;
 }
 
