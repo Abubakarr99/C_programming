@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<string.h>
-/*#include"snake.h"*/
 #include"snake.c"
 #define NBL 22
 #define NBC 36
@@ -66,12 +65,23 @@ void place_snake(char grid[NBL][NBC+1], Snake serpent){
 	}
 }
 
-Snake move_snake(Snake serpent, char grid[NBL][NBC+1]){
-	grid[serpent.pos[3].x][serpent.pos[3].y] = ' ';
-	serpent = crawl(serpent);
-	grid[serpent.pos[0].x][serpent.pos[0].y] = 's';
-	
-	return serpent;
+enum Element move_snake(Snake *serpent, char grid[NBL][NBC+1]){
+	int val;
+	grid[serpent->pos[3].x][serpent->pos[3].y] = ' ';
+	crawl(serpent);
+	switch (grid[serpent->pos[0].x][serpent->pos[0].y]) {
+        case WALL:
+           val = WALL;
+            break;
+        case EMPTY:
+            val= EMPTY;
+            break;
+        case FRUIT:
+            val= FRUIT;
+            break;
+    	}
+    	grid[serpent->pos[0].x][serpent->pos[0].y] = 's';
+    	return val;
 }
 
 
