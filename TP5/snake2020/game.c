@@ -42,7 +42,7 @@ int main(int argc, char *argv[]){
 	int resultat = -1;
 	Grid *g;
 	int i, j;
-	stream = fopen(argv[1], "r");
+	stream = fopen(argv[2], "r");
 	nbl = count_nb_line(stream);
 	rewind(stream);
 	nbc = count_nb_colonne(stream);
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]){
 	g->nbl = nbl;
 	g->nbc = nbc;
 	rewind(stream);
-	for (i=0;i<nbl;i++)
+	/*for (i=0;i<nbl;i++)
 	{
 		int size_tmp = getline(&buf, &size_buf, stream);
 		if (size_tmp!=nbc+1){
@@ -60,7 +60,7 @@ int main(int argc, char *argv[]){
 		copy(buf, g->grid[i]);
 	}
 	free(buf);
-	debug(g, nbl, nbc);
+	debug(g, nbl, nbc);*/
 	int nb_fruits= 0;
 	int colonne = 0;
 	int elem;
@@ -82,7 +82,17 @@ int main(int argc, char *argv[]){
             print_usage (stdout, 0);
             break;
         case 'i':
-	    printf("ok");
+	    for (i=0;i<nbl;i++)
+        	{
+                int size_tmp = getline(&buf, &size_buf, stream);
+                if (size_tmp!=nbc+1){
+                        printf("y a un probleme");
+                        exit(1);
+                }
+                copy(buf, g->grid[i]);
+        	}
+        	free(buf);
+
 	    }
 	}
 	while (next_option != -1);
