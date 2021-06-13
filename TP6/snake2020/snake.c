@@ -43,3 +43,36 @@ void crawl(Snake *serpent){
 
     }
 
+
+Snake* new_snake()
+{
+        Snake *snake = malloc(sizeof(*snake));
+        snake->segments_list=NULL;
+        snake->size=0;
+        return snake;
+}
+
+void add_segment(Snake* serpent, int x, int y)
+{
+	Coord *Coord1 = malloc(sizeof(*Coord1));
+	Coord1->next=NULL;
+	Coord1->x = x;
+	Coord1->y = y;
+	serpent->segments_list = Coord1;
+}
+
+
+void free_snake(Snake *serpent)
+{
+	Coord *asupprime;
+	while(serpent->segments_list != NULL){
+		asupprime = serpent->segments_list;
+		serpent->segments_list = serpent->segments_list->next;
+		free(asupprime);
+	}
+}
+
+
+
+
+
